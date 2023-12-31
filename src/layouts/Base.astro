@@ -1,0 +1,27 @@
+---
+import config from "$lib/config/config.json";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- favicon -->
+		<link rel="shortcut icon" href={config.site.favicon} />
+		<!-- meta -->
+		<meta http-equiv="Content-Type" content="text/html; carset=UTF-8" />
+
+		<!-- responsive meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+		<title>{config.site.title}</title>
+
+		<!-- canonical url -->
+
+		<!-- noindex robots -->
+
+		<!-- meta description -->
+		<meta name="description" content={config.metadata.meta_description} />
+	</head>
+	<body class="mx-auto max-w-[1440px] bg-[#FFF9F3]">
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import PrayerCard from "$lib/components/PrayerCard.svelte";
+import NewsCard from "$lib/components/NewsCard.svelte";
+import Donate from "$lib/components/Donate.svelte";
+
+import Base from "$lib/layouts/Base.astro";
+
+const times = [];
+---
+
+<Base>
+	<main class="mx-auto px-8">
+		<div class="py-30">
+			<h2 class="mb-4 text-2xl font-semibold">Monday Dec 25th (hijri)</h2>
+			<div class="grid grid-cols-2 gap-4">
+				<PrayerCard prayerTimes={times} />
+			</div>
+		</div>
+		<div class="py-36">
+			<NewsCard />
+		</div>
+		<div class="py-36">
+			<Donate />
+		</div>
+	</main>
+</Base>
