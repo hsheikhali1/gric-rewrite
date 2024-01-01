@@ -1,5 +1,7 @@
 ---
 import config from "$lib/config/config.json";
+
+import Header from "$lib/layouts/partials/Header.astro";
 ---
 
 <!doctype html>
@@ -22,6 +24,7 @@ import config from "$lib/config/config.json";
 		<meta name="description" content={config.metadata.meta_description} />
 	</head>
 	<body class="mx-auto max-w-[1440px] bg-[#FFF9F3]">
+		<Header />
 		<slot />
 	</body>
 </html>
