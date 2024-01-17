@@ -2,7 +2,7 @@
 	export let time: string;
 </script>
 
-<div class="grid w-full rounded-md border border-t-gray-300 bg-white p-8 md:col-span-4">
+<div class="grid w-full rounded-md border border-gray-300 bg-[#fcfcff] p-8 md:col-span-4">
 	<h2 class="text-center text-2xl font-bold">Some Text</h2>
 	<div class="flex flex-col justify-center space-y-4">
 		<div class="flex flex-col items-center space-y-4">

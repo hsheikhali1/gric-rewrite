@@ -1,7 +1,6 @@
 ---
 import Base from "$lib/layouts/Base.astro";
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Header from "$lib/layouts/partials/Header.astro";
 import PrayerCard from "$lib/components/PrayerCard.svelte";
 import NewsCard from "$lib/components/NewsCard.svelte";
 import Donate from "$lib/components/Donate.svelte";
@@ -17,7 +16,6 @@ const PRAYER_NAMES = new Set<string>(["Fajr", "Sunrise", "Dhuhr", "Asr", "Maghri
 const { data } = await getPrayerTimes();
 const timesArray = Object.keys(data.timings);
 
-console.log(timesArray);
 const filteredTimes = timesArray.filter((time) => PRAYER_NAMES.has(time));
 
 function formatTime(timeString: string) {
@@ -43,7 +41,8 @@ filteredTimes.forEach((filteredTime, index) => {
 ---
 
 <Base>
-	<main class="mx-auto px-8">
+	<Header />
+	<main class="mx-auto max-w-[1440px] px-8">
 		<div class="py-30">
 			<h2 class="mb-4 text-2xl font-semibold">Monday Dec 25th (hijri)</h2>
 			<div class="grid grid-cols-1 gap-y-4 md:grid-cols-12 md:gap-x-4">

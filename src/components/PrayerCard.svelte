@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { twMerge } from "tailwind-merge";
-	import Clock from "$lib/components/icons/Clock.astro";
 	import type { PrayerTimeType } from "$lib/types";
 
 	export let prayerTimes: PrayerTimeType[];
@@ -32,7 +31,7 @@
 </script>
 
 <div class="col-span-8 grid">
-	<div class="flex flex-col bg-white">
+	<div class="flex flex-col bg-[#fcfcff]">
 		<div class="rounded-md border border-gray-300 p-8">
 			<div class="flex justify-between">
 				<span class="mb-2 text-lg font-bold text-[#1AA599]">Salah</span>
