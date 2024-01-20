@@ -38,6 +38,31 @@ filteredTimes.forEach((filteredTime, index) => {
 		nextPrayerTime: nextPrayerTime
 	});
 });
+
+const allPosts = await Astro.glob("./posts/*.md");
+
+console.log(allPosts);
+
+type News = {
+	postDate: string;
+	href: string;
+	newsTitle: string;
+	newsType: string;
+	authorImage: {
+		url: string;
+		alt: string;
+	};
+	authorName: string;
+};
+
+const news: News[] = [...allPosts.map((post) => ({
+	postDate: post.frontmatter.pubDate,
+	href: post.url as string,
+	authorName: post.frontmatter.author,
+	authorImage: post.frontmatter.image,
+	newsTitle: post.frontmatter.title,
+	newsType: "News"
+}))];
 ---
 
 <Base>
@@ -51,7 +76,26 @@ filteredTimes.forEach((filteredTime, index) => {
 			</div>
 		</div>
 		<div class="py-36">
-			<NewsCard />
+			<div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
+				<h2
+					class="mb-4 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-black"
+				>
+					Our Blog
+				</h2>
+				<p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+					We use an agile approach to test assumptions and connect with the needs of your audience
+					early and often.
+				</p>
+			</div>
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+				{
+					news.map((article) => (
+						<NewsCard
+							{...article}
+						/>
+					))
+				}
+			</div>
 		</div>
 		<div class="py-36">
 			<Donate />

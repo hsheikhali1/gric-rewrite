@@ -32,7 +32,7 @@
 
 <div class="col-span-8 grid">
 	<div class="flex flex-col bg-[#fcfcff]">
-		<div class="rounded-md border border-gray-300 p-8">
+		<div class="rounded-md border border-gray-300 p-8 h-full">
 			<div class="flex justify-between">
 				<span class="mb-2 text-lg font-bold text-[#1AA599]">Salah</span>
 				<span class="mb-2 text-lg font-bold text-[#1AA599]">Begins</span>
