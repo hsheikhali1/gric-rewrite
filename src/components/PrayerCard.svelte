@@ -26,13 +26,25 @@
 		return prayerTimes[0];
 	}
 
+	const d = new Date();
+	const currentTime = `${d.getHours()}:${d.getMinutes()}`;
 	const prayerTimeArray = prayerTimes?.map((time) => time.currentPrayerTime);
 	const nextPrayerTime = getNextPrayerTime(prayerTimeArray as string[]);
+
+	prayerTimes.map((time, index) => {
+		if (
+			currentTime > time.previousPrayerTime &&
+			currentTime < time.nextPrayerTime &&
+			nextPrayerTime !== time.currentPrayerTime
+		) {
+			console.log(currentTime, time.currentPrayerTime, index);
+		}
+	});
 </script>
 
 <div class="col-span-8 grid">
 	<div class="flex flex-col bg-[#fcfcff]">
-		<div class="rounded-md border border-gray-300 p-8 h-full">
+		<div class="h-full rounded-md border border-gray-300 p-8">
 			<div class="flex justify-between">
 				<span class="mb-2 text-lg font-bold text-[#1AA599]">Salah</span>
 				<span class="mb-2 text-lg font-bold text-[#1AA599]">Begins</span>
@@ -42,7 +54,10 @@
 					<div
 						class={twMerge(
 							"flex flex-row justify-between rounded-lg border border-[#E6E6E6] p-4",
-							nextPrayerTime === time.currentPrayerTime && activeClasses
+							nextPrayerTime !== time.currentPrayerTime &&
+								currentTime > time.previousPrayerTime &&
+								currentTime < time.nextPrayerTime &&
+								activeClasses
 						)}
 					>
 						<div class="flex flex-row items-center space-x-2">
